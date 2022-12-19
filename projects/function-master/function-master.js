@@ -131,15 +131,17 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 // creating a function called maybe noises that takes in an object as a parameter 
 function maybeNoises(object) {
-// creating an if/ else statement 
-    if(object.noises.length > 0){ 
-       return object.noises.join(" "); 
-    } else if (object.noises.length === 0){
-       return "there are no noises"; 
-    } else { 
-        return "there are no noises";
-    }
+    var obj = object.noises; // creating a variable obj and setting it equal to the noises property in object 
+    if(obj === undefined){ // if obj strictly equals undefined return there are no noises 
+            return "there are no noises"; 
+}
+if(object.noises.length > 0){  // if the property of noises has a length greater than zero concat the noises array into a string 
+    var arr = object.noises.join(' ');  
+    return arr; // returning the new array of the noises property 
+} else if(object.noises.length === 0){  // if the noises array in the input object is equal to zero return there are no noises 
 
+    return "there are no noises"; 
+}
 
 }
 
@@ -205,7 +207,18 @@ return false;
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    
+        var arr = []; // setting variable arr to empty array  
+        for(let i = 0; i < array.length; i++){ // iterating through the array parameter 
+            if(array[i].friends.includes(name)){
+        // if the index of the friends property in array includes name do nothing 
+            } else { 
+                if(!(array[i].name === name)) //  if the name property is not included in array push name into empty array 
+                arr.push(array[i].name); 
+            }
+        }
+        return arr // return new array 
+        
 
 }
 

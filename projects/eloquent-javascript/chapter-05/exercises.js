@@ -2,16 +2,24 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
+function flatten(arrays){
+let flattenedArray = arrays.flat(); 
 
+return flattenedArray; 
 }
+
+  
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
+function loop(start, test, update, body) {
 
+  for(let value = start; value = test(value); value = update(value)){
+    body(value); 
+  }
+return loop; 
 }
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -26,7 +34,29 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) {
+// create arrays to store ltr and rtl
+let ltr = []; 
+let rtl = []; 
+
+for(let i = 0; i < string.length; i++){
+let script = characterScript(string.charCodeAt(i)); 
+
+if (script !== null){
+if(script.direction === "ltr"){
+  ltr.push(script); // ltr += 1 
+} else if (script.direction === "rtl"){
+  rtl.push(script); // rtl += 1
+}
+}
+
+}
+
+if(ltr.length > rtl.length){
+  return "ltr";
+} else {
+  return "rtl"; 
+}
 
 }
 
