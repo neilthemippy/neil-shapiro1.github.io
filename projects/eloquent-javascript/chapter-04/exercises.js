@@ -111,7 +111,17 @@ function prepend(value, list) {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, number) {
+// creating recursive function nth with parameters list and number 
+if (number === 0) { // if number strictly equals zero  return list element at value key 
+  return list.value; 
+} else if (list.rest === null) { //if key of rest = null return undefined 
+  return undefined;  
+} else { // call nth function until number reaches base list.rest number-1 
+  return nth(list.rest, number-1);
+}
+
+
 
 }
 

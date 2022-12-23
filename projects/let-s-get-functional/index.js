@@ -292,39 +292,23 @@ var topThreeTags = function(array){ // creating function top three tags that tak
 
 
 var genderCount = function(array){
-let newobject = {}; // creating newobject to hold summary of genderCount
-// creating new property .male and setting it equal to array.reduce
-newobject.male = array.reduce(function(accumlator, currentvalue){// giving reduce the parameters of accumulator, currentval
-            if(currentvalue.gender === "male"){// if currentvalue.gender equals the string "male"
-                accumlator += 1; //accumulator += 1
-            } else { // if not return accumulator
-            return accumlator; 
+
+    let genderObj = array.reduce(function(accumlator, currentval){
+
+            if(accumlator[currentval.gender]){
+                accumlator[currentval.gender] += 1;
+            } else {
+
+                accumlator[currentval.gender] = 1; 
             }
-     return accumlator; // return accumulator
-},0); // seed value of zero
 
-newobject.female = array.reduce(function(accumlator, currentvalue){// giving reduce the parameters of accumulator, currentval
-    if(currentvalue.gender === "female"){// if currentvalue.gender equals the string "female"
-        accumlator += 1; // accumulator += 1
-    } else {// if not return accumulator
-    return accumlator; 
-    } // return accumulator
-return accumlator; 
-},0); // seed value of zero 
+            return accumlator;
 
-newobject["non-binary"] = array.reduce(function(accumlator, currentvalue){// giving reduce the parameters of accumulator, currentval
-    if(currentvalue.gender === "non-binary"){// if current.gender equals string "non-binary"
-        accumlator += 1; // accumulator += 1
-    } else { // if not return accumulator
-    return accumlator; 
-    }
- return accumlator // return accumulator
-},0); // seed value of 0
+    }, {}); 
 
-return newobject; // return summary of genders 
+    return genderObj; 
 
-}
-
+} 
 
 
 // ### 10: `genderCount`

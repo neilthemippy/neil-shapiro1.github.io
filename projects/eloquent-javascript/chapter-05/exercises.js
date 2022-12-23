@@ -3,9 +3,20 @@
 // /////////////////////////////////////////////////////////////////////////////
 
 function flatten(arrays){
-let flattenedArray = arrays.flat(); 
+  // creating varibale and setting it equal to empty array 
+  var all = []; 
+// creating for loop to loop through the array parameter
+  for(let i = 0; i < arrays.length; i++){
+//creating 2nd loop to loop through the inner index of array parameter
+for(let j = 0; j < arrays[i].length; j++){
+  all.push(arrays[i][j]); // pusing index i and j into empty array 
+}
 
-return flattenedArray; 
+
+} // return all array 
+return all; 
+
+
 }
 
   
@@ -13,20 +24,30 @@ return flattenedArray;
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
+// creating loop function that takes 4 parameters
+function loop(start, test, update, body){
+for (let value = start; test(value); value = update(value)) { // creating for loop to iterate parameters 
+    
+  body(value);
 
-function loop(start, test, update, body) {
-
-  for(let value = start; value = test(value); value = update(value)){
-    body(value); 
-  }
-return loop; 
 }
 
+}
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
+function every(array, test) {
+// creating variable is true and giving it boolean of true 
+var istrue = true
+// create for loop to iterate through array parameter
+  for(let i = 0; i < array.length; i++){
+// if element of array is falsy  
+  if(!test(array[i])){
+    istrue = false // setting is true to false
+  }
+}
+return istrue; // logic above not executed return is true
 
 }
 

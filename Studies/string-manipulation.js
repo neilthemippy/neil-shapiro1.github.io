@@ -125,4 +125,8 @@ console.log(greeting);
 // expected output: "   Hello world!   ";
 
 console.log(greeting.trim());
-// expected output: "Hello world!";
+expected output: "Hello world!";
+*/ 
+
+
+
